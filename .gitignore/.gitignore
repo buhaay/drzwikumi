@@ -2,3 +2,6 @@
 *.png
 *.jpg
 *.jpeg
+
+# ignore pyc
+*.pyc

@@ -2564,7 +2564,23 @@ ul {
   designed on a 20 by 20 grid. */
 }
 
+.lnr-thumbs-up {
+  color: #0F52BA;
+  font-size: 20px;
+  /* To get crisp results, use sizes that are
+  a multiple of 20; because Linearicons was
+  designed on a 20 by 20 grid. */
+}
+
 .lnr-user {
+  color: #0F52BA;
+  font-size: 20px;
+  /* To get crisp results, use sizes that are
+  a multiple of 20; because Linearicons was
+  designed on a 20 by 20 grid. */
+}
+
+.lnr-users {
   color: #0F52BA;
   font-size: 20px;
   /* To get crisp results, use sizes that are

@@ -22,10 +22,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '-z2*vu0%r=vd^x4gfcd-&848dm$gm^i+0020@-ov^au!qbq-6x'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['139.162.163.67']
-
 
 # Application definition
 
@@ -75,6 +74,11 @@ WSGI_APPLICATION = 'drzwikumi.wsgi.application'
 
 DATABASES = {
     'default': {
+        # 'ENGINE': 'django.db.backends.postgresql',
+        # 'NAME': 'drzwikumidb',
+        # 'USER': 'postgres',
+        # 'HOST': 'localhost',
+        # 'PORT': '5432',
     }
 }
 

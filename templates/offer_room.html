@@ -1,0 +1,35 @@
+{% extends "index.html" %}
+
+{% load static %}
+
+{% block content %}
+<body class="offer-background">
+    <div class="wrapper">
+        <div class="hint">
+            <h3 class="wow slideInDown">Kliknij w wybraną serię aby zobaczyć wszystkie dostępne modele i kolory.</h3>
+        </div>
+        <div class="collection-wrapper">
+            {% for example in examples %}
+                <div class="series-wrapper">
+                    <h4> {{ example.name }} </h4>
+                    <div class="room-wrapper">
+                        {% for serie in example.series|dictsort:"serie" %}
+                            <div>
+                                <div>
+                                    <span>SERIA {{ serie.serie }}</span>
+                                </div>
+                                <div>
+                                    <a href="{% url 'room_details' example.name serie.serie %}">
+                                        <img title="" src="{% static serie.image %}" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+
+{% endblock %}

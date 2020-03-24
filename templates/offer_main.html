@@ -1,0 +1,30 @@
+{% extends "index.html" %}
+
+{% load static %}
+ <style>
+    body {
+        background-image: url("/static/background.jpg")
+}
+</style>
+{% block content %}
+<body class="offer-background">
+    <div class="wrapper">
+        <div class="hint">
+            <h3 class="wow slideInDown">Kliknij w wybrany model aby zobaczyć wszystkie dostępne kolory.</h3>
+        </div>
+        <div class="grid">
+            {% for example in examples|dictsort:"name" %}
+                <div class="nested">
+                    <a href="{% url 'door_details' example.name %}">
+                        <img title="{{ example.name }}" src="{% static example.image %}" alt="">
+                    </a>
+                    <div>
+                        <h5 style="font-family: Open Sans">{{example.name}}</h5>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+
+{% endblock %}

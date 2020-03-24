@@ -1,0 +1,89 @@
+{% extends "index.html" %}
+
+{% load static %}
+
+{% block content %}
+<body class="offer-background">
+    <div class="wrapper">
+        <div class="door-container">
+            <div class="b wow slideInLeft">
+                <div>
+                    <h3>{{ door_name }}</h3>
+                </div>
+                <img title="Kliknij aby zobaczyć pełny rozmiar" src="{% static main.src %}" alt="">
+                <div>
+                    <h4 class="color wow slideInUp">{{ main.color }}</h4>
+                </div>
+            </div>
+            <div class="s wow slideInRight">
+            {% for image in images %}
+                <div>
+                    <img class="image" src="{% static image.src %}" alt="{{ image.color }}">
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+        <div class="description">
+            <div class="desc-title">
+                <h3>Opis i dane.</h3>
+            </div>
+            <div>
+                <div>
+                    <h6>DRZWI WEWNĄTRZLOKALOWE PROFILOWANE</h6>
+                </div>
+                <div>Skrzydło drzwiowe wykonane z klejonego wzdłuż i w poprzek drewna sosnowego. Jego wypełnienie stanowi płyta wiórowa pełna i <br> styropian twardy. Takie wykonanie zwiększa wytrzymałość konstrukcji.</div>
+            </div>
+            <div>
+                <div>
+                    <h6>WYKOŃCZENIE</h6>
+                </div>
+                <div>Płyta MDF oklejona Folia PCV</div>
+            </div>
+            <div>
+                <div>
+                    <h6>GRUBOŚĆ SKRZYDŁA</h6>
+                </div>
+                <div>”80, ”90”</div>
+            </div>
+            <div>
+                <div>
+                    <h6>WYPOSAŻENIE STANDARDOWE</h6>
+                </div>
+                <div>
+                    <ul>
+                        <li>zamek dolny trzpieniowy 3-bolcowy</li>
+                        <li>zamek górny trzpieniowy 3-bolcowy</li>
+                        <li>3 zawiasy dwu-punktowe regulowane na imbus</li>
+                        <li>3 bolce antywyważeniowe</li>
+                        <li>uszczelka w przyldze</li>
+
+                    </ul>
+            </div>
+            </div>
+            <div>
+                <div>
+                    <h6>OPCJE ZA DOPŁATĄ</h6>
+                </div>
+                <div>
+                    <ul>
+                        <li>nietypowy wymiar skrzydła</li>
+                        <li>dwa kolory okleiny PCV</li>
+                        <li>wyfrezowanie np. numeru, nazwiska itp. na drzwiach</li>
+                        <li>podcięcie wentylacyjne</li>
+                    </ul>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    var big = $(".b img");
+    var color = $(".color");
+    $(".s div img").click(function() {
+        big.attr("src", $(this).attr("src"));
+        color.text($(this).attr("alt"));
+    });
+</script>
+</body>
+
+{% endblock %}

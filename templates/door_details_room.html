@@ -1,0 +1,62 @@
+{% extends "index.html" %}
+
+{% load static %}
+
+{% block content %}
+<body class="offer-background">
+    <div class="wrapper">
+        <div class="door-container">
+            <div class="b wow slideInLeft">
+                <div>
+                    <h3>{{ door_name }}</h3>
+                    <h6>Seria {{ series }}</h6>
+
+                </div>
+                <div>
+                    <img title="Kliknij aby zobaczyć pełny rozmiar" src="{% static main.src %}" alt="">
+                </div>
+            </div>
+            <div class="small">
+                <div class="s wow slideInRight">
+                {% for image in images %}
+                    <div>
+                        <img class="image" src="{% static image.src %}" alt="">
+                    </div>
+                {% endfor %}
+                </div>
+                <div class="colors">
+                    <h5>KOLORYSTYKA</h5>
+                    <img src="{% static color %}" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="description">
+            <div class="desc-title">
+                <h3>Opis i dane.</h3>
+            </div>
+            <div>
+                <div>
+                    <h6>KONSTRUKCJA</h6>
+                </div>
+                <div>
+                    <ul>
+                        {% for description in descriptions %}
+                            <li>{{ description }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    var big = $(".b img");
+    var color = $(".color");
+    $(".s div img").click(function() {
+        big.attr("src", $(this).attr("src"));
+        color.text($(this).attr("alt"));
+    });
+</script>
+</body>
+
+{% endblock %}

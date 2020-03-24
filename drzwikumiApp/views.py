@@ -8,6 +8,7 @@ from django.core.mail import send_mail, BadHeaderError
 from .forms import ContactForm
 import os
 import re
+
 static_images = settings.DOOR_IMAGES
 
 description = {
@@ -46,7 +47,7 @@ def index(request):
 
 def offer_main(request):
     context = {
-        'examples' : [],
+        'examples': [],
     }
     main_dir = '{}/{}'.format(static_images, 'maindoors')
     for root, directories, files in os.walk(main_dir):
@@ -62,8 +63,8 @@ def door_details(request, door_name):
     files = os.listdir('{}/{}/{}'.format(static_images, 'maindoors', door_name.capitalize()))
 
     main = {
-        'src' : files[0],
-        'color' :  files[0].split('-')[1].capitalize()
+        'src': files[0],
+        'color': files[0].split('-')[1].capitalize()
     }
 
     images = []
@@ -71,7 +72,7 @@ def door_details(request, door_name):
         color = file.split('-')[1]
         if color.startswith('4'):
             color = ''
-            main = {'src' : file, 'color': ''}
+            main = {'src': file, 'color': ''}
         if 'dab' in color:
             result = re.search('(dab)(\w+)', color)
             color = '{} {}'.format(result.group(1).replace('a', 'ą'),
@@ -91,15 +92,15 @@ def door_details(request, door_name):
 
     context = {
         'images': images,
-        'main'  : main,
-        'door_name' : door_name,
+        'main': main,
+        'door_name': door_name,
     }
     return render(request, 'door_details_main.html', context)
 
 
 def offer_room(request):
     context = {
-        'examples' : [],
+        'examples': [],
     }
 
     main_dir = '{}/{}'.format(static_images, 'roomdoors')
@@ -111,9 +112,12 @@ def offer_room(request):
         for serie in os.listdir('{}/{}'.format(main_dir, directory)):
             if os.path.isdir('{}/{}/{}'.format(main_dir, directory, serie)):
                 files = os.listdir('{}/{}/{}'.format(main_dir, directory, serie))
+                example = files[0]
+                if example.startswith('k'):
+                    example = files[1]
                 example_dir['series'].append({
                     'serie': serie,
-                    'image' : files[0],
+                    'image': example,
                 })
         context['examples'].append(example_dir)
     return render(request, 'offer_room.html', context)
@@ -121,7 +125,7 @@ def offer_room(request):
 
 def room_details(request, door_name, door_series):
     files = os.listdir('{}/{}/{}/{}'.format(static_images, 'roomdoors',
-                                         door_name.capitalize(), door_series))
+                                            door_name.capitalize(), door_series))
 
     images = []
     for file in files:
@@ -134,14 +138,13 @@ def room_details(request, door_name, door_series):
 
     context = {
         'images': images,
-        'main'  : main,
-        'door_name' : door_name,
-        'series' : door_series,
+        'main': main,
+        'door_name': door_name,
+        'series': door_series,
         'color': color,
-        'descriptions' : description[door_name],
+        'descriptions': description[door_name],
     }
 
-    pprint(context)
     return render(request, 'door_details_room.html', context)
 
 
@@ -166,4 +169,3 @@ def contact(request):
                 return HttpResponse('Invalid header found.')
             return render(request, 'index.html', {})
     return render(request, "contact.html", {'form': form})
-

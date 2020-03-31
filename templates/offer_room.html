@@ -6,7 +6,7 @@
 <body class="offer-background">
     <div class="wrapper">
         <div class="hint">
-            <h3 class="wow slideInDown">Kliknij w wybraną serię aby zobaczyć wszystkie dostępne modele i kolory.</h3>
+            <h4 class="wow slideInDown">Kliknij w wybraną serię aby zobaczyć wszystkie dostępne modele i kolory.</h4>
         </div>
         <div class="collection-wrapper">
             {% for example in examples %}
@@ -15,14 +15,10 @@
                     <div class="room-wrapper">
                         {% for serie in example.series|dictsort:"serie" %}
                             <div>
-                                <div>
-                                    <span>SERIA {{ serie.serie }}</span>
-                                </div>
-                                <div>
-                                    <a href="{% url 'room_details' example.name serie.serie %}">
-                                        <img title="" src="{% static serie.image %}" alt="">
-                                    </a>
-                                </div>
+                                <p>SERIA {{ serie.serie }}</p>
+                                <a href="{% url 'room_details' example.name serie.serie %}">
+                                    <img title="" src="{% static serie.image %}" alt="">
+                                </a>
                             </div>
                         {% endfor %}
                     </div>
@@ -31,5 +27,4 @@
         </div>
     </div>
 </body>
-
 {% endblock %}

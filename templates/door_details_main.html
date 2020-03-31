@@ -7,13 +7,9 @@
     <div class="wrapper">
         <div class="door-container">
             <div class="b wow slideInLeft">
-                <div>
-                    <h3>{{ door_name }}</h3>
-                </div>
+                <h3>{{ door_name }}</h3>
                 <img title="Kliknij aby zobaczyć pełny rozmiar" src="{% static main.src %}" alt="">
-                <div>
-                    <h4 class="color wow slideInUp">{{ main.color }}</h4>
-                </div>
+                <h4 class="color wow slideInUp">{{ main.color }}</h4>
             </div>
             <div class="s wow slideInRight">
             {% for image in images %}

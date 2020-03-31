@@ -2362,7 +2362,7 @@ span.email-notes {
   text-align:center;
 }
 
-.hint > h3 {
+.hint > h4 {
   font-weight: bold;
 }
 
@@ -2373,11 +2373,6 @@ span.email-notes {
   grid-gap: 2em;
   align-items:center;
 }
-
-/*
-border-radius:25px;
-box-shadow: 15px -15px 15px grey;
-*/
 
 .nested {
   display:grid;
@@ -2394,7 +2389,7 @@ box-shadow: 15px -15px 15px grey;
 }
 
 .offer-background {
-  background-image: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url("slider3.jpg");
+  background-image: linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)), url("slider3.jpg");
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -2413,20 +2408,21 @@ box-shadow: 15px -15px 15px grey;
 
 .wrapper {
     display: grid;
-    position:absolute;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius:15px;
+    position: relative;
+    padding: 2em;
     top: 9em;
-    width:100%;
-    justify-content:center;
+    max-width:60%;
+    margin: auto;
     grid-row-gap: 2em;
 }
 
 .description {
     display:grid;
     justify-self: center;
+    border-top: 1px solid #010;
     position:relative;
-    width: 55%;
-    background: rgba(255, 255, 255, 0.4);
-    border-radius:15px;
     grid-row-gap: 1em;
     padding: 2em;
 }
@@ -2441,18 +2437,17 @@ ul {
 
 .door-container {
     display: grid;
-    width: 55%;
-    grid-template-columns: 32% 60%;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-column-gap: 5em;
     justify-self: center;
-    background: rgba(255, 255, 255, 0.4);
-    border-radius:15px;
     padding: 2em;
 }
 
 .door-container .b {
+    display: grid;
     align-items: center;
-    justify-items: center;
+    justify-content: center;
 }
 
 .b div {
@@ -2460,11 +2455,11 @@ ul {
     justify-items: center;
 }
 
-.b div h3 {
+.b h3 {
     text-align: center;
 }
 
-.b div h4 {
+.b h4 {
     text-align: center;
 }
 
@@ -2472,13 +2467,13 @@ ul {
     text-align: center;
 }
 
-.b div img {
-    max-height: 600px;
+.b img {
+    max-height: 550px;
 }
 
 .s {
     display:grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
     grid-column-gap: 1em;
     grid-row-gap: 1em;
 }
@@ -2497,18 +2492,6 @@ ul {
     align-self: end;
     text-align: center;
 }
-/*
-.colors img {
-    width: 500px;
-    max-height: 200px;
-}
-
-
-.image {
-    height: 200px;
-    width:100px;
-}
-*/
 
 .s div:hover {
     transform: scale(1.1);
@@ -2518,18 +2501,6 @@ ul {
     transform: scale(1.1);
 }
 
-.contact {
-    display: grid;
-    grid-row-gap: 3em;
-    justify-items:center;
-    background: rgba(255, 255, 255, 0.5);
-    padding: 1em;
-    border-radius: 15px;
-}
-
-.contact div h4 {
-  font-weight: bold;
-}
 
 .form {
     display:grid;
@@ -2590,11 +2561,11 @@ ul {
 
 .about {
     display: grid;
-    position: absolute;
-    top: 8rem;
-    grid-row-gap: 1rem;
-    font-size:1vw;
-    grid-auto-columns: minmax(auto, 23%);
+    position: relative;
+    margin: auto;
+    grid-template-columns: minmax(350px, 25%);
+    top: 23vh;
+    font-size: 2vh;
     justify-content: center;
 }
 
@@ -2602,7 +2573,7 @@ ul {
     justify-self: center;
 }
 
-.about h3 {
+.about h4 {
     text-align:center;
 }
 
@@ -2616,20 +2587,12 @@ ul {
 }
 
 .collection-wrapper {
-    grid-auto-rows: auto;
-    width: 60%;
     display: grid;
-    justify-content: center;
-    justify-self: center;
-    align-items:center;
-    background: rgba(255, 255, 255, 0.5);
+    width:100%;
 }
 
 .series-wrapper {
-    display: grid;
-    justify-content:center;
     border-top: 1px solid #010;
-    grid-auto-column:auto;
 }
 
 .series-wrapper h4 {
@@ -2637,19 +2600,24 @@ ul {
     font-weight: bold;
 }
 
+/*
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    grid-template-columns: repeat(9, 1fr);
+*/
+
 .room-wrapper {
     display: grid;
-    grid-template-columns: repeat(9, 1fr);
-    grid-column-gap: 3em;
-    grid-row-gap: 2em;
+    grid-gap: 2em;
+    width: 100%;
     padding: 1em;
+    grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+    justify-items: center;
+
 }
 
-.room-wrapper div {
-    display: grid;
-    justify-content: center;
+.room-wrapper div p {
+    text-align: center;
 }
-
 /*
 .room-images div img {
     height: 200px;

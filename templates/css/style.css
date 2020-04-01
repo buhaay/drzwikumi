@@ -2413,7 +2413,7 @@ span.email-notes {
     position: relative;
     padding: 2em;
     top: 9em;
-    max-width:60%;
+    width:60%;
     margin: auto;
     grid-row-gap: 2em;
 }
@@ -2610,7 +2610,7 @@ ul {
     grid-gap: 2em;
     width: 100%;
     padding: 1em;
-    grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
     justify-items: center;
 
 }
@@ -2629,15 +2629,8 @@ ul {
 }
 
 /* Media Queries: Tablet Landscape */
-@media screen and (max-width: 1060px) {
-    #primary { width:67%; }
-    #secondary { width:30%; margin-left:3%;}
-}
-
-/* Media Queries: Tabled Portrait */
-@media screen and (max-width: 768px) {
-    #primary { width:100%; }
-    #secondary { width:100%; margin:0; border:none; }
+@media only screen and (max-width: 768px) {
+    .wrapper { width:100%; }
 }
 
 @media (min-device-width:600px) {

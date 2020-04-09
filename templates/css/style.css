@@ -353,7 +353,7 @@ div#preloader {
   height: 70px;
   position: fixed;
   top: 0;
-  width: 100%;
+  width: 100%;r
   z-index: 1000;
 }
 
@@ -535,7 +535,7 @@ div#preloader {
 
 .wrapper {
     display: grid;
-    background: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.8);
     border-radius:15px;
     position: relative;
     padding: 2em;
@@ -748,6 +748,11 @@ ul {
 .room-wrapper div p {
     text-align: center;
 }
+
+.room-wrapper div {
+  display: grid;
+  align-content: end;
+}
 /*
 .room-images div img {
     height: 200px;
@@ -782,6 +787,14 @@ ul {
     img[data-src-800px] {
         content: attr(data-src-800px, url);
     }
+}
+
+footer {
+  display: flex;
+  width: 100%;
+  height: auto;
+  background: rgba(0, 0, 0, 0.40);
+  z-index: 9;
 }
 /*----------------------------------------
  .End CSS

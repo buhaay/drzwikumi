@@ -8,11 +8,15 @@ Author URI: http://dev7studios.com
 Supports Thumbs: true
 */
 
-
 .slider-area {
-  color: #fff;
-  position: relative;
+  position: fixed;
   text-align: center;
+  color: #fff;
+  height: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .slider-content {

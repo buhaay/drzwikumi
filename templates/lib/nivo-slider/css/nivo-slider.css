@@ -175,7 +175,7 @@ Default Theme
     z-index:5;
     overflow:hidden;
 }
-.nivo-box img { display:block; }
+.nivo-box img { display:block;}
 .nivo-caption {
   position:absolute;
     left:0; 
@@ -347,4 +347,14 @@ slider animation
     -moz-animation: fadeInRight 1500ms ease-in-out;
     -ms-animation: fadeInRight 1500ms ease-in-out;
     animation: fadeInRight 1500ms ease-in-out;
+}
+
+@media only screen and (max-width: 768px) {
+    .nivo-caption a {
+        display:grid !important;
+    }
+    .nivo-caption {
+        display: grid;
+        align-content: center;
+    }
 }

@@ -5,23 +5,22 @@
 {% block content %}
 <body class="offer-background">
 
-<div class="wrapper">
+<div class="wrapper layer-1-2 wow slideInUp  animated">
     <h4 style="text-align:center; font-weight: bold">Skontaktuj się z nami!</h4>
         <div class="form">
-            <div>
-                <h5 style="font-weight: bold">Telefonicznie:</h5>
-            </div>
-            <div>
-                <h5 style="font-weight: bold">Formularz kontaktowy: </h5>
-            </div>
             <div class="contact-info">
+                <div>
+                    <h5 style="font-weight: bold">Telefonicznie:</h5>
+                </div>
                 <div>
                     <span class="lnr lnr-user"></span>
                     <span class>Przedstawiciel firmy:</span>
                 </div>
                 <div>
                     <span class="lnr lnr-phone-handset"></span>
-                    <span>+48 795 648 112</span>
+                    <a href="tel: +48 795 648 112">
+                        <span>+48 795 648 112</span>
+                    </a>
                 </div>
                 <div>
                     <span class="lnr lnr-users"></span>
@@ -37,15 +36,20 @@
                 </div>
             </div>
             {% load bootstrap4 %}
-            <form method="post">
-                {% csrf_token %}
-                {% bootstrap_form form %}
-                <div class="form-actions">
-                    {% buttons %}
-                        <button class="btn btn-secondary" type="submit">Wyślij</button>
-                    {% endbuttons %}
+            <div>
+                <h5 style="font-weight: bold">Formularz kontaktowy: </h5>
+                <div>
+                    <form method="post">
+                        {% csrf_token %}
+                        {% bootstrap_form form %}
+                        <div class="form-actions">
+                            {% buttons %}
+                                <button class="btn btn-secondary" type="submit">Wyślij</button>
+                            {% endbuttons %}
+                        </div>
+                    </form>
                 </div>
-            </form>
+            </div>
         </div>
 
 </div>

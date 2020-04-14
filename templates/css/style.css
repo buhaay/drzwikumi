@@ -37,7 +37,7 @@ a:focus {
 
 img {
   max-width: 100%;
-  height: auto;
+  height: 100%;
 }
 
 .fix {
@@ -487,6 +487,7 @@ div#preloader {
 
 .hint {
   text-align:center;
+  width: 100%;
 }
 
 .hint > h4 {
@@ -496,7 +497,7 @@ div#preloader {
 .grid {
   display: grid;
   width: 100%;
-  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
   grid-gap: 2em;
   align-items:center;
 }
@@ -508,7 +509,7 @@ div#preloader {
 }
 
 .nested:hover {
-  transform: scale(1.2);
+  transform: scale(1.03);
 }
 
 .grid > div {
@@ -516,7 +517,7 @@ div#preloader {
 }
 
 .offer-background {
-  background-image: linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)), url("slider3.jpg");
+  background-image: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), url("slider3.jpg");
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -525,7 +526,7 @@ div#preloader {
 }
 
 .about-background {
-  background-image: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url("about_background.jpeg");
+  background-image: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), url("slider2.jpg");
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -535,6 +536,7 @@ div#preloader {
 
 .wrapper {
     display: grid;
+    grid-auto-columns: 1fr;
     background: rgba(255, 255, 255, 0.8);
     border-radius:15px;
     position: relative;
@@ -543,7 +545,7 @@ div#preloader {
     width:60%;
     margin: auto;
     grid-row-gap: 2em;
-    justify-items: center;
+    justify-content: center;
 }
 
 .description {
@@ -568,7 +570,6 @@ ul {
     width: 100%;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-row-gap: 4em;
-    justify-self: center;
     padding: 2em;
 }
 
@@ -634,13 +635,13 @@ ul {
 
 .form {
     display:grid;
-    grid-gap:1em;
+    width: 100%;
     grid-template-columns: 1fr 1fr;
+    grid-column-gap: 5rem;
+    justify-content: center;
+    /*grid-template-columns: repeat(auto-fit, 1fr);*/
 }
 
-.form div {
-    grid-rows-gap: 1em;
-}
 
 .name {
     font-size: 20px;
@@ -651,10 +652,9 @@ ul {
 }
 
 .contact-info {
-    display: grid;
-    align-items: center;
-    grid-row-gap: 1em;
-    height: 20px;
+    display: inline-block;
+    /*align-items: start;*/
+    /*grid-row-gap: 1rem;*/
 }
 
 .lnr-phone-handset {
@@ -691,16 +691,16 @@ ul {
 
 .about {
     display: grid;
+    width: 30%;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius:15px;
     position: relative;
     margin: auto;
-    grid-template-columns: minmax(350px, 25%);
-    top: 23vh;
+    padding: 2rem;
+    /*grid-template-columns: minmax(350px, 25%);*/
+    top: 130px;
     font-size: 2vh;
     justify-content: center;
-}
-
-.about div {
-    justify-self: center;
 }
 
 .about h4 {
@@ -774,6 +774,13 @@ ul {
     }
     .b img {
       height: 400px;
+    }
+    .form {
+      grid-template-columns: 1fr;
+      grid-row-gap: 5rem;
+    }
+    .about {
+      width:100%;
     }
 }
 

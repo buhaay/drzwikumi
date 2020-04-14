@@ -20,7 +20,8 @@
     position:fixed;
     left:0px;
 }
-.nivoSlider img {position:absolute;
+.nivoSlider img {
+    position:absolute;
     top:0px;
     left:0px;
 }

@@ -807,7 +807,7 @@ ul {
     }
 }
 
-@media (min-device-width:600px) {
+/*@media (min-device-width:600px) {
     img[data-src-600px] {
         content: attr(data-src-600px, url);
     }
@@ -817,7 +817,7 @@ ul {
     img[data-src-800px] {
         content: attr(data-src-800px, url);
     }
-}
+}*/
 
 .footer {
   display: flex;

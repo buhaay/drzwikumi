@@ -792,7 +792,7 @@ ul {
       grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
     }
     .grid img {
-      max-height: 190px;
+      max-height: 200px;
     }
     .room-wrapper img {
       max-height: 200px;

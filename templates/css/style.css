@@ -437,20 +437,6 @@ div#preloader {
   padding: 10px 0px;
 }
 
-/*----------------------------------------*/
-
-/*  16.Home Page 2  CSS
-/*----------------------------------------*/
-
-.offer-background {
-  background-image: linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)), url("slider3.jpg");
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  filter: blur(7);
-}
-
 
 /*----------------------------------------*/
 
@@ -544,13 +530,17 @@ div#preloader {
     top: 9em;
     width:60%;
     margin: auto;
-    grid-row-gap: 2em;
+    /*grid-row-gap: 1em;*/
     justify-content: center;
+}
+
+.wrapper h3 {
+  text-decoration: underline;
+  text-align: center;
 }
 
 .description {
     display:grid;
-    justify-self: center;
     border-top: 1px solid #010;
     position:relative;
     grid-row-gap: 1em;
@@ -608,6 +598,10 @@ ul {
     justify-content: start;
 }
 
+.s img {
+  height: auto;
+}
+
 .s div:hover {
     transform: scale(1.1);
     max-height: 300px;
@@ -620,16 +614,44 @@ ul {
 
 .colors {
     display: grid;
-    justify-items: center;
+    grid-template-columns: 1fr;
+    grid-column-gap: 1rem;
+    justify-content: center;
+    border-top: 1px solid #010;
+    padding: 2em;
 }
 
+.borders {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 100px);
+    justify-content: space-around;
+    padding: 2em 0 0 0;
+}
+
+/*.border img {
+  max-height: 70px;
+  max-width: 100px;
+}
+*/
 .colors h5 {
     align-self: end;
     text-align: center;
 }
 
+.border img {
+  width: 100%;
+  max-height: 80%;
+  justify-self: center;
+}
+
+.room-img {
+  width: 80%;
+  max-height: 250px;
+  justify-self: center;
+}
+
 .b:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 
@@ -781,6 +803,7 @@ ul {
     }
     .about {
       width:100%;
+      top: 70px;
     }
 }
 
@@ -796,13 +819,14 @@ ul {
     }
 }
 
-footer {
+.footer {
   display: flex;
   width: 100%;
   height: auto;
   background: rgba(0, 0, 0, 0.40);
   z-index: 9;
 }
+
 /*----------------------------------------
  .End CSS
 ----------------------------------------*/

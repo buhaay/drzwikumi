@@ -9,7 +9,7 @@
             <h4 class="wow slideInDown">Kliknij w wybraną serię aby zobaczyć wszystkie dostępne modele i kolory.</h4>
         </div>
         <div class="collection-wrapper">
-            {% for example in examples %}
+            {% for example in examples|dictsort:"name" %}
                 <div class="series-wrapper">
                     <h4> {{ example.name }} </h4>
                     <div class="room-wrapper">

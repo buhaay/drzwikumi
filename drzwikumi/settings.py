@@ -24,6 +24,7 @@ SECRET_KEY = '-z2*vu0%r=vd^x4gfcd-&848dm$gm^i+0020@-ov^au!qbq-6x'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# ALLOWED_HOSTS = []
 ALLOWED_HOSTS = ['139.162.163.67']
 
 # Application definition
@@ -155,16 +156,18 @@ DOOR_IMAGES = BASE_DIR + '/templates/img/offer'
 
 staticfiles_list = list(STATICFILES_DIRS)
 for directory in os.listdir(DOOR_IMAGES):
-    for subdirectory in os.listdir('{}/{}/'.format(DOOR_IMAGES, directory)):
-        staticfiles_list.append('{}/{}/{}/'.format(DOOR_IMAGES, directory, subdirectory))
-        if directory == 'roomdoors':
-            for serie in os.listdir('{}/{}/{}/'.format(DOOR_IMAGES, directory, subdirectory)):
-                if os.path.isdir('{}/{}/{}/{}/'.format(DOOR_IMAGES, directory, subdirectory, serie)):
-                    staticfiles_list.append('{}/{}/{}/{}/'.format(DOOR_IMAGES, directory, subdirectory, serie))
+    staticfiles_list.append('{}/{}/'.format(DOOR_IMAGES, directory))
+    if directory != 'borderdoors':
+        for subdirectory in os.listdir('{}/{}/'.format(DOOR_IMAGES, directory)):
+            staticfiles_list.append('{}/{}/{}/'.format(DOOR_IMAGES, directory, subdirectory))
+            if directory == 'roomdoors':
+                for serie in os.listdir('{}/{}/{}/'.format(DOOR_IMAGES, directory, subdirectory)):
+                    if os.path.isdir('{}/{}/{}/{}/'.format(DOOR_IMAGES, directory, subdirectory, serie)):
+                        staticfiles_list.append('{}/{}/{}/{}/'.format(DOOR_IMAGES, directory, subdirectory, serie))
 
 STATICFILES_DIRS = tuple(staticfiles_list)
 
-STATIC_ROOT = 'static'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/templates/'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.wp.pl'

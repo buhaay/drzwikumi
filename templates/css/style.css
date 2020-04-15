@@ -794,6 +794,9 @@ ul {
     .grid img {
       max-height: 190px;
     }
+    .room-wrapper img {
+      max-height: 200px;
+    }
     .s {
       justify-content: center;
     }

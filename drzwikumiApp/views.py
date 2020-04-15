@@ -36,7 +36,23 @@ description = {
         'Okucia: 3 zawiasy czopowe',
         'Zamek: zasuwkowy, oszczędnościowy, pod wkładkę patentową lub z blokadą',
         'Szyba dekormat',
-    ]
+    ],
+    'Modern': [
+        'Skrzydło wykonane w technologii ramiakowej',
+        'Ramiaki pionowe wykonane z płyty MDF o szerokości 140mm pokryte okleiną',
+        'Płyciny wykonane z płyty MDF o grubości 16mm pokryte okleiną',
+        'Okucia: 3 zawiasy czopowe',
+        'Zamek: zasuwkowy, oszczędnościowy, pod wkładkę patentową lub z blokadą',
+        'Szyba dekormat, bezpieczna przeźroczysta 3.3.1 lub bezpieczna mleczna 3.3.1'
+    ],
+    'Trendy': [
+        'Skrzydło wykonane w technologii ramiakowej',
+        'Ramiaki pionowe wykonane z płyty MDF o szerokości 140mm pokryte okleiną',
+        'Płyciny wykonane z płyty MDF o grubości 16mm pokryte okleiną',
+        'Okucia: 3 zawiasy czopowe',
+        'Zamek: zasuwkowy, oszczędnościowy, pod wkładkę patentową lub z blokadą',
+        'Szyba dekormat, bezpieczna przeźroczysta 3.3.1 lub bezpieczna mleczna 3.3.1'
+    ],
 }
 
 
@@ -55,7 +71,6 @@ def offer_main(request):
             files = os.listdir('{}/{}'.format(main_dir, directory))
             context['examples'].append({'name': directory,
                                         'image': sorted(files)[0]})
-    pprint(context)
     return render(request, 'offer_main.html', context)
 
 
@@ -112,9 +127,10 @@ def offer_room(request):
         for serie in os.listdir('{}/{}'.format(main_dir, directory)):
             if os.path.isdir('{}/{}/{}'.format(main_dir, directory, serie)):
                 files = os.listdir('{}/{}/{}'.format(main_dir, directory, serie))
-                example = files[0]
-                if example.startswith('k'):
-                    example = files[1]
+                for file in files:
+                    if not file.startswith('k'):
+                        example = file
+                        break
                 example_dir['series'].append({
                     'serie': serie,
                     'image': example,
@@ -144,8 +160,52 @@ def room_details(request, door_name, door_series):
         'color': color,
         'descriptions': description[door_name],
     }
+    if door_name == 'Trendy' or door_name == 'Modern':
+        return border_details(request, files=files, door_name=door_name)
+    else:
+        template = 'door_details_room.html'
+    return render(request, template, context)
 
-    return render(request, 'door_details_room.html', context)
+
+def border_details(request, *args, **kwargs):
+    if kwargs:
+        files = kwargs['files']
+    else:
+        files = os.listdir('{}/{}'.format(static_images, 'borderdoors'))
+    # directory = door_name if door_name else 'border_details'
+
+    images = []
+    colors = []
+    for file in files:
+        if file.startswith('kolory'):
+            name = file.split('.')[1]
+            name = name.replace('_', ' ')
+            colors.append({
+                'src' : file,
+                'name' : name.capitalize(),
+                })
+        else:
+            images.append({'src': file})
+
+    main = {'src': images[0]['src']}
+
+    if kwargs:
+        door_name = kwargs['door_name']
+        colors_title = 'Dostępne kolory'
+    else:
+        door_name = 'Drzwi z listwą.'
+        colors_title = 'Kolory listew.'
+
+
+    context = {
+        'images': images,
+        'main': main,
+        'door_name': door_name,
+        'colors_title': colors_title,
+        'colors': colors,
+    }
+
+    return render(request, 'door_details_border.html', context)
 
 
 def about(request):

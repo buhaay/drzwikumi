@@ -790,6 +790,8 @@ ul {
     .wrapper { width:100%; }
     .grid {
       grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    }
+    .grid img {
       max-height: 190px;
     }
     .s {
@@ -808,7 +810,7 @@ ul {
     }
 }
 
-@media (min-device-width:600px) {
+/*@media (min-device-width:600px) {
     img[data-src-600px] {
         content: attr(data-src-600px, url);
     }
@@ -818,7 +820,7 @@ ul {
     img[data-src-800px] {
         content: attr(data-src-800px, url);
     }
-}
+}*/
 
 .footer {
   display: flex;

@@ -225,7 +225,7 @@ def contact(request):
                                    'Wiadomość: {}'.format(form.cleaned_data['message'])])
             msg = "Dziękujemy za wiadomość! Postaramy się odpowiedzieć najszybciej jak to możliwe."
             try:
-                send_mail(subject, message, settings.EMAIL_HOST_USER, ['qwqwqw@qw.com'])
+                send_mail(subject, message, settings.EMAIL_HOST_USER, ['drzwikumi@gmail.com'])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             return render(request, 'contact.html', {'msg' : msg, 'form':form})

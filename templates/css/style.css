@@ -785,6 +785,16 @@ ul {
   transform: scale(1.03);
 }
 
+.signature {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 18px;
+}
+
+.signature:hover {
+  
+}
 /* Media Queries: Tablet Landscape */
 @media only screen and (max-width: 768px) {
     .wrapper { width:100%; }
@@ -824,14 +834,6 @@ ul {
         content: attr(data-src-800px, url);
     }
 }*/
-
-.footer {
-  display: flex;
-  width: 100%;
-  height: auto;
-  background: rgba(0, 0, 0, 0.40);
-  z-index: 9;
-}
 
 /*----------------------------------------
  .End CSS

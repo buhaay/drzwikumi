@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import json
+
+with open('/etc/config.json') as config_file:
+    config = json.load(config_file)
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -19,10 +23,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '-z2*vu0%r=vd^x4gfcd-&848dm$gm^i+0020@-ov^au!qbq-6x'
+SECRET_KEY = config['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # ALLOWED_HOSTS = []
 ALLOWED_HOSTS = ['139.162.163.67']
@@ -173,5 +177,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.wp.pl'
 EMAIL_USE_SSL = True
 EMAIL_PORT = 465
-EMAIL_HOST_USER = 'powiadomienia.kumi@wp.pl'
-EMAIL_HOST_PASSWORD = 'adikurwakodi12'
+EMAIL_HOST_USER = config.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config.get('EMAIL_HOST_PASSWORD')

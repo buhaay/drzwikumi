@@ -68,7 +68,9 @@ def offer_main(request):
     main_dir = '{}/{}'.format(static_images, 'maindoors')
     for root, directories, files in os.walk(main_dir):
         for directory in directories:
-            files = os.listdir('{}/{}'.format(main_dir, directory))
+            files = [file for file in os.listdir('{}/{}'.format(main_dir, directory)) if 'bialy' not in file]
+            if len(files) < 2:
+                files = os.listdir('{}/{}'.format(main_dir, directory))
             context['examples'].append({'name': directory,
                                         'image': sorted(files)[0]})
     return render(request, 'offer_main.html', context)
@@ -189,13 +191,14 @@ def border_details(request, *args, **kwargs):
 
     main = {'src': images[0]['src']}
 
+    details = None
     if kwargs:
         door_name = kwargs['door_name']
         colors_title = 'Dostępne kolory'
     else:
         door_name = 'Drzwi z listwą.'
         colors_title = 'Kolory listew.'
-
+        details = True
 
     context = {
         'images': images,
@@ -203,6 +206,7 @@ def border_details(request, *args, **kwargs):
         'door_name': door_name,
         'colors_title': colors_title,
         'colors': colors,
+        'details': details,
     }
 
     return render(request, 'door_details_border.html', context)

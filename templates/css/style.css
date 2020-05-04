@@ -797,7 +797,7 @@ ul {
 }
 /* Media Queries: Tablet Landscape */
 @media only screen and (max-width: 768px) {
-    .wrapper { width:100%; }
+    .wrapper { width:100%; top: 70px;}
     .grid {
       grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
     }
